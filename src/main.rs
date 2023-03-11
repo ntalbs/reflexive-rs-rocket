@@ -30,7 +30,7 @@ fn echo<'a>(req: &'a Request, _: Data<'a>) -> route::BoxFuture<'a> {
 
     let echo = EchoResponse {
         method: req.method().to_string(),
-        path: "/path".to_string(),
+        path: req.uri().path().to_string(),
         queries: BTreeMap::new(),
         headers: BTreeMap::new(),
         body: "BODY".to_string(),
